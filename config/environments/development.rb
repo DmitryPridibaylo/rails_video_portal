@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  address:         "smtp.gmail.com",
-  port:            587,
-  domain:          "gmail.com",
-  user_name:       "pr30dim@gmail.com",
-  password:        "cwxr zxix yoaj xkqb",
-  authentication:  "plain",
-  enable_starttls: true,
-  open_timeout:    5,
-  read_timeout:    5 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:         "smtp.gmail.com",
+    port:            587,
+    domain:          "gmail.com",
+    user_name:       "pr30dim@gmail.com",
+    password:        "cwxr zxix yoaj xkqb",
+    authentication:  "plain",
+    enable_starttls: true,
+    open_timeout:    5,
+    read_timeout:    5 }
 
   # Settings specified here will take precedence over those in config/application.rb.
 

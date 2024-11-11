@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FilmsController < ApplicationController
   before_action :set_film, only: %i[ show edit update destroy ]
 
