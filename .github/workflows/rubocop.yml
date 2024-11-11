@@ -43,13 +43,13 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
-      - name: Setup Database
-        working-directory: ${{env.api-dir}}
-        env:
-          RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: postgres
-        run: bin/rails db:create db:schema:load
+   #   - name: Setup Database
+   #    working-directory: ${{env.api-dir}}
+   #     env:
+   #       RAILS_ENV: test
+   #       PGHOST: localhost
+   #       PGUSER: postgres
+   #     run: bin/rails db:create db:schema:load
       - name: Check Rubocop Styles
         working-directory: ${{env.api-dir}}
         env:
