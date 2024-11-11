@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :films
   devise_for :user
              #         controllers: {
              # omniauth_callbacks: 'users/omniauth_callbacks'
