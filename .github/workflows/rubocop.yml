@@ -1,0 +1,36 @@
+name: Rubocop
+on: [pull_request]
+jobs:
+  install-deps:
+    name: Install Dependencies
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.5
+          bundler-cache: true
+      - name: Install Bundler
+        run: gem install bundler:2.3.10
+      - name: Bundle Install
+        run: bundle install
+  rubocop-test:
+    name: Rubocop
+    needs: install-deps
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - name: Install Bundler
+        run: gem install bundler:2.3.10
+      - name: Bundle Install
+        run: bundle install
+      - name: Check code
+        run: bundle exec rubocop

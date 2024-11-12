@@ -2,7 +2,7 @@
 
 require "test_helper"
 
-class OmniauthControllerTest < ActionDispatch::IntegrationTest
+class FilmTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
