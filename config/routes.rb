@@ -2,10 +2,11 @@
 
 Rails.application.routes.draw do
   resources :films
+  get "profile", to: "profiles#show"
   devise_for :user
   #         controllers: {
-  # omniauth_callbacks: 'users/omniauth_callbacks'
-  # }
+  #omniauth_callbacks: 'users/omniauth_callbacks'
+  #}
 
   get "home/index"
 

@@ -1,0 +1,133 @@
+body {
+    background-color: #e7e8ec;
+    font-family: Arial, sans-serif;
+}
+
+.vk-films-container, .vk-film-detail, .vk-film-edit {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.vk-films-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.vk-film-card {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.vk-film-card h2 {
+    margin: 0 0 10px 0;
+}
+
+.vk-film-link {
+    color: #4a76a8;
+    text-decoration: none;
+}
+
+.vk-film-link:hover {
+    text-decoration: underline;
+}
+
+.vk-film-button {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 10px 15px;
+    background-color: #5bb75b;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.vk-film-button:hover {
+    background-color: #4a9e4a;
+}
+
+.vk-film-field {
+    margin-bottom: 15px;
+}
+
+.vk-film-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.vk-film-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* Контейнер списка фильмов */
+.vk-films-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Действия, например кнопка создания */
+.vk-film-actions {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+/* Список фильмов в виде сетки */
+.vk-films-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Карточка фильма */
+.vk-film-card {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Название фильма (ссылка) */
+.vk-film-link {
+    color: #4a76a8;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.vk-film-link:hover {
+    text-decoration: underline;
+}
+
+/* Кнопка действий */
+.vk-film-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #5bb75b;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.vk-film-button:hover {
+    background-color: #4a9e4a;
+}

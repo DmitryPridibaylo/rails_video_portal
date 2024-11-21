@@ -1,16 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<div class="vk-films-container">
+  <h1>Список фильмов</h1>
 
-<% content_for :title, "Films" %>
-
-<h1>Films</h1>
-
-<div id="films">
-  <% @films.each do |film| %>
-    <%= render film %>
-    <p>
-      <%= link_to "Show this film", film %>
-    </p>
+  <!-- Кнопка "Создание фильма" -->
+  <% if user_signed_in? %>
+    <div class="vk-film-actions">
+      <%= link_to "Создание фильма", new_film_path, class: "vk-film-button" %>
+    </div>
   <% end %>
-</div>
 
-<%= link_to "New film", new_film_path %>
+  <!-- Список фильмов -->
+  <div class="vk-films-list">
+    <% @films.each do |film| %>
+      <div class="vk-film-card">
+        <h2><%= link_to film.name, film_path(film), class: "vk-film-link" %></h2>
+        <p><strong>Дата выхода:</strong> <%= film.release_date.strftime("%d.%m.%Y") if film.release_date %></p>
+        <p><strong>Страна:</strong> <%= film.country %></p>
+        <p><strong>Возрастное ограничение:</strong> <%= film.age %>+</p>
+      </div>
+    <% end %>
+  </div>
+</div>

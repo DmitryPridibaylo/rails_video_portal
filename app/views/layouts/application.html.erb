@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= content_for(:title) || "Rails Video Portal" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Мое приложение</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= yield :head %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+<body>
+<!-- Шапка -->
+<header class="header">
+  <div class="header-container">
+    <!-- Логотип или название -->
+    <div class="header-logo">
+      <%= link_to "Видео-портал", root_path, class: "header-logo-link" %>
+    </div>
 
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+    <!-- Навигация -->
+    <nav class="header-nav">
+      <%= link_to "Главная", root_path, class: "header-link" %>
+      <%= link_to "Фильмы", films_path, class: "header-link" %>
+      <%= link_to "Профиль", profile_path(current_user), class: "header-link" if user_signed_in? %>
+    </nav>
 
-  <body>
-  <%= link_to 'Hello', '/', class: 'btn btn-primary' %>
-    <%= yield %>
-  </body>
+    <!-- Кнопки входа/выхода -->
+    <div class="header-actions">
+      <% if user_signed_in? %>
+        <%= button_to "Выход", destroy_user_session_path, method: :delete, class: "header-button logout" %>
+      <% else %>
+        <%= link_to "Вход", new_user_session_path, class: "header-button login" %>
+      <% end %>
+    </div>
+  </div>
+</header>
+
+<!-- Основной контент -->
+<div class="content">
+  <%= yield %>
+</div>
+</body>
 </html>

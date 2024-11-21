@@ -1,0 +1,37 @@
+<h1><%= @user.name %>’s Profile</h1>
+
+<div class="tabs">
+  <button class="tab-link active" onclick="openTab(event, 'info')">Info</button>
+  <button class="tab-link" onclick="openTab(event, 'activity')">Recent Activity</button>
+</div>
+
+<div id="info" class="tab-content active">
+  <p><strong>Email:</strong> <%= @user.email %></p>
+  <p><strong>Joined on:</strong> <%= @user.created_at.strftime("%B %d, %Y") %></p>
+  <p><strong>Bio:</strong> <%= @user.bio || "No bio available" %></p>
+</div>
+
+<div id="activity" class="tab-content" style="display:none;">
+  <h3>Recent Activity</h3>
+  <% @user.activities.each do |activity| %>
+    <p><%= activity.description %> on <%= activity.created_at.strftime("%B %d, %Y") %></p>
+  <% end %>
+</div>
+
+<%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
