@@ -1,0 +1,22 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="profile-avatar">
+      <!-- Здесь можно будет загрузить аватар пользователя -->
+      <img src="/path/to/default-avatar.png" alt="Avatar">
+    </div>
+    <div class="profile-info">
+      <h1><%= @user.email %></h1>
+      <p>Дата регистрации: <%= @user.created_at.strftime("%d.%m.%Y") %></p>
+    </div>
+  </div>
+
+  <div class="profile-content">
+    <h2>Информация</h2>
+    <ul>
+      <li>Провайдер: <%= @user.provider || "Не указан" %></li>
+      <li>UID: <%= @user.uid || "Не указан" %></li>
+      <li>Подтвержден: <%= @user.confirmed_at ? "Да" : "Нет" %></li>
+    </ul>
+  </div>
+</div>
+

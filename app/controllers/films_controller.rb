@@ -10,6 +10,7 @@ class FilmsController < ApplicationController
 
   # GET /films/1 or /films/1.json
   def show
+
   end
 
   # GET /films/new

@@ -1,11 +1,50 @@
-<% content_for :title, "New film" %>
+<div class="vk-film-edit">
+  <h1>Добавление нового фильма</h1>
 
-<h1>New film</h1>
+  <%= form_with model: @film, local: true, html: { class: "vk-film-form" } do |f| %>
+    <div class="vk-film-field">
+      <%= f.label :name, "Название" %>
+      <%= f.text_field :name, class: "vk-film-input" %>
+    </div>
 
-<%= render "form", film: @film %>
+    <div class="vk-film-field">
+      <%= f.label :description, "Описание" %>
+      <%= f.text_area :description, class: "vk-film-input" %>
+    </div>
 
-<br>
+    <div class="vk-film-field">
+      <%= f.label :trailer, "Ссылка на трейлер" %>
+      <%= f.text_field :trailer, class: "vk-film-input" %>
+    </div>
 
-<div>
-  <%= link_to "Back to films", films_path %>
+    <div class="vk-film-field">
+      <%= f.label :release_date, "Дата выхода" %>
+      <%= f.date_field :release_date, class: "vk-film-input" %>
+    </div>
+
+    <div class="vk-film-field">
+      <%= f.label :duration, "Продолжительность (мин)" %>
+      <%= f.number_field :duration, class: "vk-film-input" %>
+    </div>
+
+    <div class="vk-film-field">
+      <%= f.label :country, "Страна" %>
+      <%= f.text_field :country, class: "vk-film-input" %>
+    </div>
+
+    <div class="vk-film-field">
+      <%= f.label :tags, "Теги" %>
+      <%= f.text_area :tags, class: "vk-film-input" %>
+    </div>
+
+    <div class="vk-film-field">
+      <%= f.label :age, "Возрастное ограничение" %>
+      <%= f.number_field :age, class: "vk-film-input" %>
+    </div>
+
+    <div class="vk-film-actions">
+      <%= f.submit "Добавить", class: "vk-film-button" %>
+      <%= link_to "Назад к списку", films_path, class: "vk-film-button" %>
+    </div>
+  <% end %>
 </div>
