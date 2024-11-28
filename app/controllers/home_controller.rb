@@ -3,6 +3,7 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
   def index
+    @films = Film.all
   end
 
   def show
