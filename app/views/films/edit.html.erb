@@ -38,13 +38,29 @@
     </div>
 
     <div class="vk-film-field">
+      <%= f.label :video_script, "video-script" %>
+      <%= f.text_area :video_script, class: "vk-film-input" %>
+    </div>
+        
+    <div class="vk-film-field">
       <%= f.label :age, "Возрастное ограничение" %>
       <%= f.number_field :age, class: "vk-film-input" %>
+    </div>
+
+    <div class="vk-film-field">
+      <%= f.label :poster, "Постер" %>
+      <%= f.file_field :poster, required:true, accept: "image/png,image/jpeg", class: "vk-film-input" %>
+    </div>
+
+    <div class="vk-film-field">
+      <%= f.label :video, "Возрастное ограничение" %>
+      <%= f.file_field :video, accept: "video/mp4", class: "vk-film-input" %>
     </div>
 
     <div class="vk-film-actions">
       <%= f.submit "Сохранить", class: "vk-film-button" %>
       <%= link_to "Назад", film_path(@film), class: "vk-film-button" %>
     </div>
+
   <% end %>
 </div>

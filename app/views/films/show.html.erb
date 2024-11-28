@@ -8,6 +8,24 @@
   <p><strong>Страна:</strong> <%= @film.country %></p>
   <p><strong>Теги:</strong> <%= @film.tags %></p>
   <p><strong>Возрастное ограничение:</strong> <%= @film.age %>+</p>
+  <%= @film.video_script&.html_safe %>
+
+  <% if @film.poster.attached? %>
+    <div class="vk-film-poster">
+      <strong>Постер:</strong>
+      <%= image_tag url_for(@film.poster), alt: "Постер фильма #{@film.name}", class: "vk-film-poster-img" %>
+    </div>
+  <% end %>
+
+  <% if @film.video.attached? %>
+    <div class="vk-film-video">
+      <strong>Видео:</strong>
+      <video controls class="vk-film-video-player">
+        <source src="<%= url_for(@film.video) %>" type="<%= @film.video.content_type %>">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </div>
+  <% end %>
 
   <%= link_to "Редактировать", edit_film_path(@film), class: "vk-film-button" %>
   <%= link_to "Назад к списку", films_path, class: "vk-film-button" %>
