@@ -146,3 +146,32 @@ body {
         opacity: 0.8;
     }
 }
+.vk-films-container {
+    padding: 20px;
+}
+
+.vk-film-actions {
+    margin-bottom: 20px;
+}
+
+.vk-films-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.vk-film-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+}
+
+.vk-film-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.vk-film-link:hover {
+    text-decoration: underline;
+}
