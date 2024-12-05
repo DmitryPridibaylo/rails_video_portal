@@ -29,3 +29,5 @@
 
 en:
   hello: "Hello world"
+  catalog:
+    all: "List of films"
